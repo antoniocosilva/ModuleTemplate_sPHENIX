@@ -22,6 +22,7 @@ replace_text = moduleName
 with open(myCurrentPath+"/Fun4All_Template.C", 'r') as file:
     data = file.read()
     data = data.replace(search_text, moduleName)
+    data = data.replace(search_text.lower(), moduleName.lower())
     data = data.replace("/path_to_user_install", userInstallDir)
 with open(myCurrentPath+"/Fun4All_Template.C", 'w') as file:
     file.write(data)
@@ -34,4 +35,9 @@ os.makedirs(buildDir, exist_ok=True)
 
 os.chdir(buildDir)
 
-subprocess.call(['sh', myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir])
+print(myCurrentPath)
+
+#subprocess.call(['sh', myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir])
+autogen = myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir
+os.system(autogen)
+os.system("make install")

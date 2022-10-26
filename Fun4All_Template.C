@@ -3,7 +3,7 @@
 #include <G4_Magnet.C>
 #include <G4_Tracking.C>
 
-#include </path_to_user_install/include/jettagging/JetTagging.h>
+#include </sphenix/u/antoniosilva/MyInstall/include/moduletemplate_sphenix/ModuleTemplate_sPHENIX.h>
 
 #include <FROG.h>
 #include <decayfinder/DecayFinder.h>
@@ -18,7 +18,7 @@
 
 //R__LOAD_LIBRARY(libqa_modules.so)
 R__LOAD_LIBRARY(libfun4all.so)
-R__LOAD_LIBRARY(/path_to_user_install/lib/moduletemplate_sphenix.so)
+R__LOAD_LIBRARY(/sphenix/u/antoniosilva/MyInstall/lib/libmoduletemplate_sphenix.so)
 
 
 
@@ -30,7 +30,7 @@ using namespace std;
 /*      cdean@bnl.gov       */
 /****************************/
 
-void Fun4All_Template(vector<string> myInputLists = {"condorJob/fileLists/productionFiles-CHARM-dst_tracks-00000.list"}, const int nEvents = 0)
+void Fun4All_Template(vector<string> myInputLists = {"productionFiles-D0JETS-dst_tracks-00000.list","productionFiles-D0JETS-dst_vertex-00000.list","productionFiles-D0JETS-dst_truth-00000.list","productionFiles-D0JETS-dst_trkr_g4hit-00000.list","productionFiles-D0JETS-dst_trackseeds-00000.list","productionFiles-D0JETS-dst_trkr_cluster-00000.list","productionFiles-D0JETS-dst_calo_cluster-00000.list","productionFiles-D0JETS-dst_truth_reco-00000.list"}, const int nEvents = 100)
 {
   int verbosity = 1;
 
@@ -41,7 +41,7 @@ void Fun4All_Template(vector<string> myInputLists = {"condorJob/fileLists/produc
   //The next set of lines figures out folder revisions, file numbers etc
   string outDir = "./";
   if (outDir.substr(outDir.size() - 1, 1) != "/") outDir += "/";
-  outDir += reconstructionName + "/";
+  outDir +=  "Output/";
 
   string fileNumber = myInputLists[0];
   size_t findLastDash = fileNumber.find_last_of("-");
@@ -54,7 +54,7 @@ void Fun4All_Template(vector<string> myInputLists = {"condorJob/fileLists/produc
   string outputRecoDir = outDir + "/inReconstruction/";
   string makeDirectory = "mkdir -p " + outputRecoDir;
   system(makeDirectory.c_str());
-  outputRecoFile = outputRecoDir + outputFileName;
+  string outputRecoFile = outputRecoDir + outputFileName;
 
   //Create the server
   Fun4AllServer *se = Fun4AllServer::instance();
@@ -82,7 +82,7 @@ void Fun4All_Template(vector<string> myInputLists = {"condorJob/fileLists/produc
   se->End();
 
   ifstream file(outputRecoFile.c_str());
-  if (!file.good())
+  if (file.good())
   {
     string moveOutput = "mv " + outputRecoFile + " " + outDir;
     system(moveOutput.c_str());

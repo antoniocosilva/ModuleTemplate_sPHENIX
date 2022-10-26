@@ -23,7 +23,6 @@
 
 #include <HepMC/GenEvent.h>
 
-#include <KFParticle.h>
 #include <g4jets/Jetv1.h>
 #include <g4jets/JetMapv1.h>
 
@@ -79,6 +78,7 @@ class ModuleTemplate_sPHENIX : public SubsysReco
 
   /// Fun4All Histogram Manager tool
   Fun4AllHistoManager *m_hm;
+  TH1 *m_htracks_pt;
 
 
 

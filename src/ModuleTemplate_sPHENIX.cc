@@ -43,9 +43,6 @@
 #include <phool/PHCompositeNode.h>
 #include <phool/getClass.h>
 
-#include <KFParticle.h>
-#include <kfparticle_sphenix/KFParticle_Container.h>
-
 #include <g4jets/FastJetAlgo.h>
 #include <g4jets/Jet.h>
 #include <g4jets/Jetv1.h>
@@ -117,6 +114,8 @@ int ModuleTemplate_sPHENIX::Init(PHCompositeNode *topNode)
 
   m_outfile = new TFile(m_outfilename.c_str(), "RECREATE");
 
+  m_htracks_pt = new TH1F("htracks_pt", ";#it{p}_{T} (GeV/#it{c});Entries", 20, 0., 10.);
+
   return 0;
 }
 
@@ -126,34 +125,33 @@ int ModuleTemplate_sPHENIX::Init(PHCompositeNode *topNode)
  */
 int ModuleTemplate_sPHENIX::process_event(PHCompositeNode *topNode)
 {
-
-  JetMapv1* jetContainer = new JetMapv1();
-
-  PHNodeIterator nodeIter(topNode);
-  PHNode *findNode = dynamic_cast<PHNode *>(nodeIter.findFirst("DST"));
-  if (findNode)
+  if (Verbosity() > 5)
   {
-    findNode = dynamic_cast<PHNode *>(nodeIter.findFirst("D0Jets_Jet_Container"));
-    if (findNode)
-    {
-      jetContainer = findNode::getClass<JetMapv1>(topNode, "D0Jets_Jet_Container");
-      //cout << "****************** CONTAINER FOUND with size: " << kfContainer->size() << endl;
-    }
+    cout << "Beginning process_event in AnaTutorial" << endl;
   }
 
-  cout << "Jet Container Found!" << endl;
+  SvtxTrackMap *trackmap = findNode::getClass<SvtxTrackMap>(topNode, "SvtxTrackMap");
 
-  cout << "Size: " << jetContainer->size() << endl;
-
-  Jet *D0jet = 0;
-
-  for(JetMapv1::Iter ijet = jetContainer->begin(); ijet != jetContainer->end(); ++ijet)
+  if (!trackmap)
   {
-    D0jet = ijet->second;
-
-    cout << "D0-Jet pT: " << D0jet->get_pt() << endl;
+    cout << PHWHERE
+         << "SvtxTrackMap node is missing, can't collect tracks"
+         << endl;
+    return 0;
   }
 
+  SvtxTrack *track = 0;
+
+  for (SvtxTrackMap::Iter iter = trackmap->begin();
+       iter != trackmap->end();
+       ++iter)
+  {
+    track = iter->second;
+
+    if(!track) continue;
+
+    m_htracks_pt->Fill(track->get_pt());
+  }
 
 
   return Fun4AllReturnCodes::EVENT_OK;
