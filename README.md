@@ -5,7 +5,7 @@ __IMPORTANT__: You should not clone this repository. Read the instructions. At t
 In your root directory, use wget to get the script that will create you new sPHENIX analysis module.
 
 ```
-wget https://github.com/antoniocosilva/ModuleTemplate_sPHENIX/blob/main/newModule_sPHENIX.py
+wget https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/newModule_sPHENIX.py
 ```
 
 Execute the script as showed below and replace &lt;MyNewModule&gt; by the name you want for your new module.
