@@ -1,7 +1,6 @@
 import sys, os
 from os import environ
 import argparse
-from git import Repo
 import urllib.request
 
 parser = argparse.ArgumentParser(description='Creates a new sPHENIX module')
