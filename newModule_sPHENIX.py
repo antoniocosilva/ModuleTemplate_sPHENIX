@@ -20,7 +20,9 @@ def newModule_sPHENIX():
     dlList = ["autogen.sh", "configure.ac", "Makefile.am", "ModuleTemplate_sPHENIX.cc", "ModuleTemplate_sPHENIX.h", "ModuleTemplate_sPHENIXLinkDef.h"]
     for f in range(len(dlList)):
         urllib.request.urlretrieve("https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/src/"+dlList[f], mainDir + "/src/" + dlList[f])
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/build_and_install.py",mainDir + "/build_and_install.py")
+    dlList2 = ["build_and_install.py", "Fun4All_Template.C", "productionFiles-D0JETS-dst_calo_cluster-00000.list", "productionFiles-D0JETS-dst_tracks-00000.list", "productionFiles-D0JETS-dst_trackseeds-00000.list", "productionFiles-D0JETS-dst_trkr_cluster-00000.list", "productionFiles-D0JETS-dst_trkr_g4hit-00000.list", "productionFiles-D0JETS-dst_truth-00000.list", "productionFiles-D0JETS-dst_truth_reco-00000.list", "productionFiles-D0JETS-dst_vertex-00000.list"]
+    for f in range(len(dlList2)):
+        urllib.request.urlretrieve("https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/"+dlList2[f],mainDir + "/" + dlList2[f])
     filePath = myCurrentPath + "/" + args.name + "/src/"
     changeFiles = ["ModuleTemplate_sPHENIX.cc", "ModuleTemplate_sPHENIX.h", "ModuleTemplate_sPHENIXLinkDef.h"]
     newFiles = [args.name + ".cc", args.name+ ".h", args.name + "LinkDef.h"]
