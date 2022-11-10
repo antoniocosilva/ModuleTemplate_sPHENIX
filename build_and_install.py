@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, stat
 from os import environ
 import argparse
 import subprocess
