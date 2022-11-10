@@ -19,8 +19,8 @@ def newModule_sPHENIX():
     os.makedirs("{}/src".format(mainDir), exist_ok=True)
     dlList = ["autogen.sh", "configure.ac", "Makefile.am", "ModuleTemplate_sPHENIX.cc", "ModuleTemplate_sPHENIX.h", "ModuleTemplate_sPHENIXLinkDef.h"]
     for f in range(len(dlList)):
-        urllib.request.urlretrieve("https://github.com/antoniocosilva/ModuleTemplate_sPHENIX/blob/main/src/"+dlList[f], mainDir + "/src/" + dlList[f])
-    urllib.request.urlretrieve("https://github.com/antoniocosilva/ModuleTemplate_sPHENIX/blob/main/build_and_install.py",mainDir + "/build_and_install.py")
+        urllib.request.urlretrieve("https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/src/"+dlList[f], mainDir + "/src/" + dlList[f])
+    urllib.request.urlretrieve("https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/build_and_install.py",mainDir + "/build_and_install.py")
     filePath = myCurrentPath + "/" + args.name + "/src/"
     changeFiles = ["ModuleTemplate_sPHENIX.cc", "ModuleTemplate_sPHENIX.h", "ModuleTemplate_sPHENIXLinkDef.h"]
     newFiles = [args.name + ".cc", args.name+ ".h", args.name + "LinkDef.h"]
