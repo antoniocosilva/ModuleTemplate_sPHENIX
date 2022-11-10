@@ -37,9 +37,9 @@ os.chdir(buildDir)
 
 print(myCurrentPath)
 
-os.chmod(myCurrentPath + "/src/autogen.sh", stat.S_IXUSR)
-
 #subprocess.call(['sh', myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir])
+chmod = "chmod +x " + myCurrentPath + "/src/autogen.sh"
 autogen = myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir
+os.system(chmod)
 os.system(autogen)
 os.system("make install")
