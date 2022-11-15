@@ -28,7 +28,7 @@ The next step is to move to the directory that was created and execute the scrip
 
 ```
 cd <MyNewModule>
-python build_and_install.py <MyInstall>
+python build_and_install.py -i <MyInstall>
 ```
 
 This script does a couple of things:
