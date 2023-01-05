@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/mai
 At this moment, you must load the sPHENIX environment using
 
 ```
-source /opt/sphenix/core/bin/sphenix_setup.sh -n ana.322
+source /opt/sphenix/core/bin/sphenix_setup.sh -n new
 ```
 
 __IMPORTANT__: ana.322 is not the newst version of the sPHENIX software. I personally have been having issues with the simulation used for tests with newest versions, so for now you can use ana.322 to guarantee that the final test will work.
