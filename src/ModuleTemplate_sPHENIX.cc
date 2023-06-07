@@ -17,8 +17,8 @@
 #include <g4jets/JetMap.h>
 
 /// Tracking includes
-#include <g4vertex/GlobalVertex.h>
-#include <g4vertex/GlobalVertexMap.h>
+#include <globalvertex/GlobalVertex.h>
+#include <globalvertex/GlobalVertexMap.h>
 #include <trackbase_historic/SvtxTrack.h>
 #include <trackbase_historic/SvtxTrackMap.h>
 #include <trackbase_historic/SvtxVertex.h>
@@ -29,8 +29,11 @@
 #include <g4eval/SvtxEvalStack.h>
 
 /// HEPMC truth includes
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include <HepMC/GenEvent.h>
 #include <HepMC/GenVertex.h>
+#pragma GCC diagnostic pop
 #include <phhepmc/PHHepMCGenEvent.h>
 #include <phhepmc/PHHepMCGenEventMap.h>
 
