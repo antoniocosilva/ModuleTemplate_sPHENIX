@@ -7,11 +7,23 @@ In your root directory, use wget to get the script that will create you new sPHE
 ```
 wget https://raw.githubusercontent.com/antoniocosilva/ModuleTemplate_sPHENIX/main/newModule_sPHENIX.py
 ```
+If you still don't have a intallation directory, you need to create one and export a variable pointing to your directory. In this example we are going to create a directory called __myInstall__. This will be our installation directory.
 
-At this moment, you must load the sPHENIX environment using
+```
+mkdir myInstall
+```
+
+And exporte the path to this directory in a variable
+
+```
+export MYINSTALL=$PWD/myInstall
+```
+
+Now you must load the sPHENIX environment using
 
 ```
 source /opt/sphenix/core/bin/sphenix_setup.sh -n new
+source $OPT_SPHENIX/bin/setup_local.sh $MYINSTALL
 ```
 
 Execute the script as showed below and replace &lt;MyNewModule&gt; by the name you want for your new module.
@@ -26,7 +38,7 @@ The next step is to move to the directory that was created and execute the scrip
 
 ```
 cd <MyNewModule>
-python build_and_install.py -i <MyInstall>
+python build_and_install.py -i $MYINSTALL
 ```
 
 This script does a couple of things:
