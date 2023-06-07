@@ -34,7 +34,7 @@ python newModule_sPHENIX.py <MyNewModule>
 
 This script will download all the files you need and make some changes in the original files using the name of the module you want.
 
-The next step is to move to the directory that was created and execute the script build_and_install.py. This time you need to replace &lt;MyInstall&gt; by the name of your installation directory. If this is the very first module you are creating, just choose a name. The directory will be created in your root directory and the includes and libs will be put there. Later, if you create another module, you can use the same installation directory and all of your includes and libs will be put in the same place.
+The next step is to move to the directory that was created and execute the script build_and_install.py.
 
 ```
 cd <MyNewModule>
