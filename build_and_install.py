@@ -9,37 +9,35 @@ parser.add_argument('-i', '--installDir', type=str, default="MyInstall", help='N
 args = parser.parse_args()
 
 userRootDir = os.path.expanduser('~')
-userInstallDir = "{}/{}".format(userRootDir,args.installDir)
+userInstallDir = "{}".format(args.installDir)
 os.makedirs(userInstallDir, exist_ok=True)
 
-myCurrentPath = os.getcwd()
+ModulePath = os.getcwd()
 
-moduleName = os.path.basename(os.path.normpath(myCurrentPath))
+moduleName = os.path.basename(os.path.normpath(ModulePath))
 
 search_text = "ModuleTemplate_sPHENIX"
 replace_text = moduleName
 
-with open(myCurrentPath+"/Fun4All_Template.C", 'r') as file:
+with open(ModulePath+"/Fun4All_Template.C", 'r') as file:
     data = file.read()
     data = data.replace(search_text, moduleName)
     data = data.replace(search_text.lower(), moduleName.lower())
     data = data.replace("/path_to_user_install", userInstallDir)
-with open(myCurrentPath+"/Fun4All_Template.C", 'w') as file:
+with open(ModulePath+"/Fun4All_Template.C", 'w') as file:
     file.write(data)
 
-buildDir = myCurrentPath + "/src/build"
+os.chdir("src")
 
-print(buildDir)
+os.makedirs("build", exist_ok=True)
 
-os.makedirs(buildDir, exist_ok=True)
+os.chdir("build")
 
-os.chdir(buildDir)
+print(os.getcwd())
 
-print(myCurrentPath)
-
-#subprocess.call(['sh', myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir])
-chmod = "chmod +x " + myCurrentPath + "/src/autogen.sh"
-autogen = myCurrentPath + "/src/autogen.sh --prefix=" + userInstallDir
+#subprocess.call(['sh', ModulePath + "/src/autogen.sh --prefix=" + userInstallDir])
+chmod = "chmod +x " + ModulePath + "/src/autogen.sh"
+autogen = ModulePath + "/src/autogen.sh --prefix=" + userInstallDir
 os.system(chmod)
 os.system(autogen)
 os.system("make install")
