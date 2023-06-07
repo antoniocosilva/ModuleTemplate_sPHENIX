@@ -3,7 +3,7 @@
 #include <G4_Magnet.C>
 #include <G4_Tracking.C>
 
-#include </path_to_user_install/include/moduletemplate_sphenix/ModuleTemplate_sPHENIX.h>
+#include <moduletemplate_sphenix/ModuleTemplate_sPHENIX.h>
 
 #include <FROG.h>
 #include <decayfinder/DecayFinder.h>
@@ -18,7 +18,7 @@
 
 //R__LOAD_LIBRARY(libqa_modules.so)
 R__LOAD_LIBRARY(libfun4all.so)
-R__LOAD_LIBRARY(/path_to_user_install/lib/libmoduletemplate_sphenix.so)
+R__LOAD_LIBRARY(libmoduletemplate_sphenix.so)
 
 
 
