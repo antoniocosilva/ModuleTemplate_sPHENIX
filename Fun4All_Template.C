@@ -30,7 +30,7 @@ using namespace std;
 /*      cdean@bnl.gov       */
 /****************************/
 
-void Fun4All_Template(vector<string> myInputLists = {"productionFiles-D0JETS-dst_tracks-00000.list","productionFiles-D0JETS-dst_vertex-00000.list","productionFiles-D0JETS-dst_truth-00000.list","productionFiles-D0JETS-dst_trkr_g4hit-00000.list","productionFiles-D0JETS-dst_trackseeds-00000.list","productionFiles-D0JETS-dst_trkr_cluster-00000.list","productionFiles-D0JETS-dst_calo_cluster-00000.list","productionFiles-D0JETS-dst_truth_reco-00000.list"}, const int nEvents = 100)
+void Fun4All_Template(vector<string> myInputLists = {"productionFiles-JET_30GEV-dst_tracks-00000.list","productionFiles-JET_30GEV-dst_vertex-00000.list","productionFiles-JET_30GEV-dst_truth-00000.list","productionFiles-JET_30GEV-dst_trkr_g4hit-00000.list", "productionFiles-JET_30GEV-dst_trkr_hit-00000.list","productionFiles-JET_30GEV-dst_trackseeds-00000.list","productionFiles-JET_30GEV-dst_trkr_cluster-00000.list","productionFiles-JET_30GEV-dst_calo_cluster-00000.list","productionFiles-JET_30GEV-dst_bbc_g4hit-00000.list"}, const int nEvents = 100)
 {
   int verbosity = 1;
 
