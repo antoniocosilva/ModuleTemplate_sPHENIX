@@ -21,8 +21,6 @@
 #include <calobase/RawTowerGeomContainer.h>
 #include <calotrigger/CaloTriggerInfo.h>
 
-#include <HepMC/GenEvent.h>
-
 #include <g4jets/Jetv1.h>
 #include <g4jets/JetMapv1.h>
 
