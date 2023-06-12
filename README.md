@@ -54,7 +54,7 @@ If everything went well, you can now run Fun4All to see if everything looks good
 root Fun4All_Template.C
 ```
 
-It should run 100 events from a heavy-flavour production and create a root file in a directory called "Output". Inside the root file you should find a histogram with the transverse momentum of tracks.
+It should run 100 events from a jet production (pp at 200 GeV) and create a root file in a directory called "Output". Inside the root file you should find a histogram with the transverse momentum of tracks.
 
 Now it's time to change the code in your .cc and .h for your new module. To recompile your code, just go to your build directory and do "make install".
 
