@@ -12,10 +12,6 @@
 
 #include <phool/phool.h>
 
-/// Jet includes
-#include <g4jets/Jetv1.h>
-#include <g4jets/JetMap.h>
-
 /// Tracking includes
 #include <globalvertex/GlobalVertex.h>
 #include <globalvertex/GlobalVertexMap.h>
@@ -46,9 +42,9 @@
 #include <phool/PHCompositeNode.h>
 #include <phool/getClass.h>
 
-#include <g4jets/FastJetAlgo.h>
-#include <g4jets/Jet.h>
-#include <g4jets/Jetv1.h>
+#include <jetbase/FastJetAlgo.h>
+#include <jetbase/Jet.h>
+#include <jetbase/Jetv1.h>
 //#include <jetbackground/FastJetAlgoSub.h>
 
 #include <fastjet/ClusterSequence.hh>
